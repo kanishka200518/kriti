@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bprjx8byqv3w8"]
+
+[ext_resource type="Script" uid="uid://8krlv3dhtqui" path="res://Scripts/enemy.gd" id="1_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://uj0bqnq2s8k3" path="res://Assets/AlienShooterGB_1.0/AlienShooterGB_1.0/Seperated_Assets/Sprites/Aliens/Alien_Air1.png" id="2_2hac7"]
+[ext_resource type="PackedScene" uid="uid://dn247c70me55w" path="res://Scenes/healthbar.tscn" id="3_2hac7"]
+[ext_resource type="Script" uid="uid://bx0jci5g28a3t" path="res://Scripts/killzone_1.gd" id="4_kpr8r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6d4v"]
+atlas = ExtResource("2_2hac7")
+region = Rect2(0, 0, 26, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qp131"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6d4v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
+size = Vector2(41, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
+size = Vector2(22, 15.75)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_mask = 5
+script = ExtResource("1_s7bn3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -12)
+sprite_frames = SubResource("SpriteFrames_qp131")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="healthbar" parent="." instance=ExtResource("3_2hac7")]
+offset_left = -16.0
+offset_right = 54.307785
+offset_bottom = 23.0
+scale = Vector2(0.5120343, 0.34281945)
+
+[node name="give damage" type="Area2D" parent="."]
+collision_mask = 4
+script = ExtResource("4_kpr8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="give damage"]
+position = Vector2(-0.5, -13)
+shape = SubResource("RectangleShape2D_xeo28")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+light_mask = 5
+position = Vector2(1, -12)
+shape = SubResource("RectangleShape2D_s7bn3")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="give damage" to="give damage" method="_on_body_entered"]
+[connection signal="body_exited" from="give damage" to="give damage" method="_on_body_exited"]

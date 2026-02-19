@@ -1,0 +1,141 @@
+[gd_scene load_steps=19 format=3 uid="uid://3em15dvwyfw4"]
+
+[ext_resource type="Script" uid="uid://dad6h76752dvs" path="res://Scripts/player_2.gd" id="1_mjxxk"]
+[ext_resource type="Texture2D" uid="uid://ch4rvwv4tc4vh" path="res://Assets/AlienShooterGB_1.0/AlienShooterGB_1.0/Seperated_Assets/Sprites/WhatsApp Image 2026-01-26 at 16.06.36.jpeg" id="2_g3ar4"]
+[ext_resource type="PackedScene" uid="uid://dn247c70me55w" path="res://Scenes/healthbar.tscn" id="3_eyttc"]
+[ext_resource type="Script" uid="uid://delu6pin7sd5r" path="res://Scripts/give_damage.gd" id="4_g3ar4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3ar4"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3ar4"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(200, 30, 162, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qrfi"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(384, 30, 162, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgh46"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(360, 426, 162, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7vm2"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(532, 426, 162, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wycv3"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(704, 426, 162, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t46hy"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(876, 426, 162, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5twf5"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(698, 999, 166, 199)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tya7o"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(350, 1198, 166, 199)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn16u"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(524, 999, 166, 199)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc2sl"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(350, 999, 166, 199)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2vxu"]
+atlas = ExtResource("2_g3ar4")
+region = Rect2(2, 999, 166, 199)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5twf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3ar4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qrfi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgh46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7vm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wycv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t46hy")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5twf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tya7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn16u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc2sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2vxu")
+}],
+"loop": true,
+"name": &"sword",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyttc"]
+radius = 14.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player2"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_mjxxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g3ar4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.0000001)
+scale = Vector2(0.13888888, 0.11111112)
+sprite_frames = SubResource("SpriteFrames_5twf5")
+animation = &"sword"
+frame = 1
+frame_progress = 0.43978277
+
+[node name="healthbar" parent="." instance=ExtResource("3_eyttc")]
+offset_left = -17.000002
+offset_top = 13.0
+offset_right = 53.307785
+offset_bottom = 36.0
+scale = Vector2(0.5120343, 0.34281945)
+
+[node name="givedamage" type="Area2D" parent="."]
+position = Vector2(1, 4)
+script = ExtResource("4_g3ar4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="givedamage"]
+position = Vector2(-1, -5)
+shape = SubResource("CircleShape2D_eyttc")
+
+[connection signal="body_entered" from="givedamage" to="givedamage" method="_on_body_entered"]
+[connection signal="body_exited" from="givedamage" to="givedamage" method="_on_body_exited"]

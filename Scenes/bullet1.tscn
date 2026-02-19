@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drkvuxbqx6c07"]
+
+[ext_resource type="Script" uid="uid://c0gr3ybuol4h6" path="res://Scripts/bullet.gd" id="1_tvvrs"]
+[ext_resource type="Texture2D" uid="uid://df8mmwdku8wav" path="res://Assets/AlienShooterGB_1.0/AlienShooterGB_1.0/Seperated_Assets/Sprites/Player/Ship_Mid.png" id="2_y4j7b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7f4k7"]
+radius = 3.0
+
+[node name="bullet" type="Area2D"]
+collision_mask = 5
+script = ExtResource("1_tvvrs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, -1)
+scale = Vector2(0.28846154, 0.23076925)
+texture = ExtResource("2_y4j7b")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_7f4k7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
