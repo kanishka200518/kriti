@@ -17,4 +17,6 @@ func _on_timer_timeout():
 
 	if time_left <= 0:
 		player_vis=false
+		player.visible=false
+
 		timer.stop()

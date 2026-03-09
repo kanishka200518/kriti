@@ -1,32 +1,32 @@
-[gd_scene load_steps=14 format=3 uid="uid://bprjx8byqv3w8"]
+[gd_scene load_steps=14 format=3 uid="uid://co1uadt6ac5ld"]
 
-[ext_resource type="Script" uid="uid://8krlv3dhtqui" path="res://Scripts/enemy.gd" id="1_s7bn3"]
-[ext_resource type="Texture2D" uid="uid://cyra2kqmndgbu" path="res://Assets/floter.png" id="2_kpr8r"]
-[ext_resource type="PackedScene" uid="uid://dn247c70me55w" path="res://Scenes/healthbar.tscn" id="3_2hac7"]
-[ext_resource type="Script" uid="uid://bx0jci5g28a3t" path="res://Scripts/killzone_1.gd" id="4_kpr8r"]
+[ext_resource type="Script" uid="uid://di0qqo7fxj2be" path="res://Scripts/enemygranny.gd" id="1_gdrfr"]
+[ext_resource type="Texture2D" uid="uid://cyra2kqmndgbu" path="res://Assets/floter.png" id="2_ghshe"]
+[ext_resource type="PackedScene" uid="uid://dn247c70me55w" path="res://Scenes/healthbar.tscn" id="3_bi5il"]
+[ext_resource type="Script" uid="uid://bx0jci5g28a3t" path="res://Scripts/killzone_1.gd" id="4_wmbua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1exfc"]
-atlas = ExtResource("2_kpr8r")
+atlas = ExtResource("2_ghshe")
 region = Rect2(0, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo1ky"]
-atlas = ExtResource("2_kpr8r")
+atlas = ExtResource("2_ghshe")
 region = Rect2(12, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bs3c"]
-atlas = ExtResource("2_kpr8r")
+atlas = ExtResource("2_ghshe")
 region = Rect2(24, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uoxpr"]
-atlas = ExtResource("2_kpr8r")
+atlas = ExtResource("2_ghshe")
 region = Rect2(36, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idouy"]
-atlas = ExtResource("2_kpr8r")
+atlas = ExtResource("2_ghshe")
 region = Rect2(48, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0o0ue"]
-atlas = ExtResource("2_kpr8r")
+atlas = ExtResource("2_ghshe")
 region = Rect2(60, 0, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qp131"]
@@ -61,9 +61,10 @@ size = Vector2(41, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpr8r"]
 radius = 6.0827627
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemyunderwater" type="CharacterBody2D"]
+position = Vector2(172, -211)
 collision_mask = 5
-script = ExtResource("1_s7bn3")
+script = ExtResource("1_gdrfr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -12)
@@ -73,7 +74,7 @@ frame_progress = 0.38429558
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="healthbar" parent="." instance=ExtResource("3_2hac7")]
+[node name="healthbar" parent="." instance=ExtResource("3_bi5il")]
 offset_left = -16.0
 offset_right = 54.307785
 offset_bottom = 23.0
@@ -81,7 +82,7 @@ scale = Vector2(0.5120343, 0.34281945)
 
 [node name="give damage" type="Area2D" parent="."]
 collision_mask = 132
-script = ExtResource("4_kpr8r")
+script = ExtResource("4_wmbua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="give damage"]
 position = Vector2(-0.5, -13)

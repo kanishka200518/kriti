@@ -33,13 +33,18 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.y=move_toward(velocity.y,0,SPEED)
 	
-	if direction < 0:
+	if direction > 0:
 		animated_sprite_2d.flip_h = true   # face left
-	elif direction > 0:
+	elif direction <0:
 		animated_sprite_2d.flip_h = false  # face right
-		
-	if velocity.x != 0:
+	
+	
+	if velocity.x != 0 :
 		animated_sprite_2d.play("run")
+	elif  directiony > 0:
+		animated_sprite_2d.play("down")
+	elif directiony <0:
+		animated_sprite_2d.play("up")
 	else:
 		animated_sprite_2d.play("idle")
 	

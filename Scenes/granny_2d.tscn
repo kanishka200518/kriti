@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bpfe61lag3r86"]
+[gd_scene load_steps=25 format=4 uid="uid://bpfe61lag3r86"]
 
 [ext_resource type="PackedScene" uid="uid://3em15dvwyfw4" path="res://Scenes/Player2.tscn" id="1_wowx8"]
 [ext_resource type="Script" uid="uid://bxkpbhrgi6ylp" path="res://Scripts/player_granny.gd" id="2_mp1f1"]
@@ -10,9 +10,6 @@
 [ext_resource type="Script" uid="uid://byqx30d7k18mi" path="res://Scripts/safezone.gd" id="7_sqoxh"]
 [ext_resource type="Script" uid="uid://bec3r2d8xd1uu" path="res://sprites/enemypathfind.gd" id="8_54y02"]
 [ext_resource type="Script" uid="uid://0nq48yqpm0wd" path="res://Scripts/enemynew.gd" id="10_c7wdb"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_54y02"]
-radius = 104.00481
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s51ui"]
 texture = ExtResource("3_54y02")
@@ -439,11 +436,6 @@ position = Vector2(-158, 142)
 script = ExtResource("2_mp1f1")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-
-[node name="Area2D" type="Area2D" parent="player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
-shape = SubResource("CircleShape2D_54y02")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 show_behind_parent = true
