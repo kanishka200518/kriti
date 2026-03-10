@@ -1,7 +1,7 @@
 extends Area2D
 @onready var player: CharacterBody2D = $"../player"
-@onready var tile_map_layer_3: TileMapLayer = $"../TileMapLayer3"
 
+@onready var tile_map_layer_3: TileMapLayer = $"../TileMapLayer3"
 
 var healing=false 
 
