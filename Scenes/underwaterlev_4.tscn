@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://drg3v0rpjof25"]
+[gd_scene load_steps=14 format=4 uid="uid://drg3v0rpjof25"]
 
 [ext_resource type="Script" uid="uid://br5o7opvawfbt" path="res://Scripts/underwater.gd" id="1_fvqhe"]
 [ext_resource type="Texture2D" uid="uid://citrsbak7bjhh" path="res://Assets/Water+.png" id="1_pb36l"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://vr7yd88hcfyp" path="res://Scripts/level_4.gd" id="4_5x2n1"]
 [ext_resource type="PackedScene" uid="uid://choipib46n4eh" path="res://Scenes/companion.tscn" id="5_gq2i8"]
 [ext_resource type="Script" uid="uid://co7wqsm4qg6vy" path="res://Scripts/companion4.gd" id="6_pkyr3"]
+[ext_resource type="Script" uid="uid://bswoh2muwv47f" path="res://Scripts/rich_text_label2.gd" id="9_5x2n1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvqhe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gq2i8"]
 texture = ExtResource("1_pb36l")
 0:0/0 = 0
 1:0/0 = 0
@@ -174,7 +175,7 @@ texture = ExtResource("1_pb36l")
 
 [sub_resource type="TileSet" id="TileSet_n3fmg"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_fvqhe")
+sources/0 = SubResource("TileSetAtlasSource_gq2i8")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6k26"]
 radius = 104.00481
@@ -214,6 +215,13 @@ shape = SubResource("RectangleShape2D_k6k26")
 [node name="companion" parent="." instance=ExtResource("5_gq2i8")]
 position = Vector2(1693, -843)
 script = ExtResource("6_pkyr3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="companion"]
+offset_right = 173.0
+offset_bottom = 81.0
+theme_override_font_sizes/normal_font_size = 8
+scroll_active = false
+script = ExtResource("9_5x2n1")
 
 [node name="spawn_timer" type="Timer" parent="."]
 wait_time = 0.5

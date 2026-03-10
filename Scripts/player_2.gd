@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
+@onready var camera_2d: Camera2D = $Camera2D
+@onready var camera_2d_2: Camera2D = $Camera2D2
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var health=100
 var health_max=100
 var health_min=0
+@onready var camera_timer: Timer = $camera_Timer
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -48,3 +51,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	
+
+
+func _on_camera_timer_timeout() -> void:
+	camera_2d.enabled=true
+	camera_2d_2.enabled=false

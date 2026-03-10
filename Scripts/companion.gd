@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var player: CharacterBody2D = $"../../player"
-@onready var level_1: Area2D = $"../level1"
 @onready var area_2d: Area2D = $"../player/Area2D"
+@onready var level_1: Area2D = $"../level1"
 
 
 const SPEED = 70.0
