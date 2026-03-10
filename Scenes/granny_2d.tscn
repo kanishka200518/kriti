@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bpfe61lag3r86"]
+[gd_scene load_steps=29 format=4 uid="uid://bpfe61lag3r86"]
 
 [ext_resource type="Script" uid="uid://br5o7opvawfbt" path="res://Scripts/underwater.gd" id="1_a85hj"]
 [ext_resource type="PackedScene" uid="uid://3em15dvwyfw4" path="res://Scenes/Player2.tscn" id="1_wowx8"]
@@ -428,6 +428,8 @@ size = Vector2(81, 109)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a85hj"]
 size = Vector2(41, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s51ui"]
+
 [node name="granny 2d" type="Node2D"]
 script = ExtResource("1_a85hj")
 enemy_scene = ExtResource("2_s51ui")
@@ -606,6 +608,12 @@ wait_time = 0.1
 autostart = true
 
 [node name="spawn_timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2427, -1291)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_s51ui")
 
 [connection signal="area_entered" from="safezone" to="safezone" method="_on_area_entered"]
 [connection signal="area_exited" from="safezone" to="safezone" method="_on_area_exited"]

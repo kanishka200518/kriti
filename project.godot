@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="kriti seen unseen"
-run/main_scene="uid://ki2sv8kf0h5f"
+run/main_scene="uid://c4gkwck643pom"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Musicplayer="*res://Scenes/musicplayer.tscn"
 
 [input]
 

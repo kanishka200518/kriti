@@ -92,6 +92,10 @@ light_mask = 5
 position = Vector2(1, -12)
 shape = SubResource("CircleShape2D_kpr8r")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-2, -11)
+target_position = Vector2(0, 7)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="give damage" to="give damage" method="_on_body_entered"]
 [connection signal="body_exited" from="give damage" to="give damage" method="_on_body_exited"]
