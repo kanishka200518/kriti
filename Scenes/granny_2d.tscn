@@ -551,7 +551,6 @@ script = ExtResource("8_54y02")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="enemy/Enemy"]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Timer2" type="Timer" parent="enemy/Enemy"]
 wait_time = 0.1
@@ -566,7 +565,6 @@ script = ExtResource("10_c7wdb")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="enemy/Enemy4"]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Timer2" type="Timer" parent="enemy/Enemy4"]
 wait_time = 0.1
@@ -579,6 +577,48 @@ collision_mask = 4
 position = Vector2(-0.5, -13)
 shape = SubResource("RectangleShape2D_a85hj")
 
+[node name="Enemy6" parent="enemy" instance=ExtResource("7_54y02")]
+position = Vector2(2084, -502)
+scale = Vector2(2, 2)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("10_c7wdb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="enemy/Enemy6"]
+path_postprocessing = 1
+
+[node name="Timer2" type="Timer" parent="enemy/Enemy6"]
+wait_time = 0.1
+autostart = true
+
+[node name="give damage2" type="Area2D" parent="enemy/Enemy6"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/Enemy6/give damage2"]
+position = Vector2(-0.5, -13)
+shape = SubResource("RectangleShape2D_a85hj")
+
+[node name="Enemy7" parent="enemy" instance=ExtResource("7_54y02")]
+position = Vector2(-486, -977)
+scale = Vector2(2, 2)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("10_c7wdb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="enemy/Enemy7"]
+path_postprocessing = 1
+
+[node name="Timer2" type="Timer" parent="enemy/Enemy7"]
+wait_time = 0.1
+autostart = true
+
+[node name="give damage2" type="Area2D" parent="enemy/Enemy7"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/Enemy7/give damage2"]
+position = Vector2(-0.5, -13)
+shape = SubResource("RectangleShape2D_a85hj")
+
 [node name="Enemy2" parent="enemy" instance=ExtResource("7_54y02")]
 position = Vector2(-557, -229)
 motion_mode = 1
@@ -587,9 +627,21 @@ script = ExtResource("8_54y02")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="enemy/Enemy2"]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Timer2" type="Timer" parent="enemy/Enemy2"]
+wait_time = 0.1
+autostart = true
+
+[node name="Enemy5" parent="enemy" instance=ExtResource("7_54y02")]
+position = Vector2(-557, -229)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("8_54y02")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="enemy/Enemy5"]
+path_postprocessing = 1
+
+[node name="Timer2" type="Timer" parent="enemy/Enemy5"]
 wait_time = 0.1
 autostart = true
 
@@ -601,13 +653,13 @@ script = ExtResource("8_54y02")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="enemy/Enemy3"]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Timer2" type="Timer" parent="enemy/Enemy3"]
 wait_time = 0.1
 autostart = true
 
 [node name="spawn_timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2427, -1291)
@@ -655,5 +707,12 @@ shape = SubResource("RectangleShape2D_s51ui")
 [connection signal="timeout" from="enemy/Enemy4/Timer2" to="enemy/Enemy4" method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="enemy/Enemy4/give damage2" to="enemy/Enemy4/give damage2" method="_on_body_entered"]
 [connection signal="body_exited" from="enemy/Enemy4/give damage2" to="enemy/Enemy4/give damage2" method="_on_body_exited"]
+[connection signal="timeout" from="enemy/Enemy6/Timer2" to="enemy/Enemy6" method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="enemy/Enemy6/give damage2" to="enemy/Enemy6/give damage2" method="_on_body_entered"]
+[connection signal="body_exited" from="enemy/Enemy6/give damage2" to="enemy/Enemy6/give damage2" method="_on_body_exited"]
+[connection signal="timeout" from="enemy/Enemy7/Timer2" to="enemy/Enemy7" method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="enemy/Enemy7/give damage2" to="enemy/Enemy7/give damage2" method="_on_body_entered"]
+[connection signal="body_exited" from="enemy/Enemy7/give damage2" to="enemy/Enemy7/give damage2" method="_on_body_exited"]
 [connection signal="timeout" from="enemy/Enemy2/Timer2" to="enemy/Enemy2" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="enemy/Enemy5/Timer2" to="enemy/Enemy5" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="enemy/Enemy3/Timer2" to="enemy/Enemy3" method="_on_timer_2_timeout"]

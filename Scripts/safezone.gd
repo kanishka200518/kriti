@@ -10,10 +10,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player): return
-	if healing and player.health<50:
+	if healing and player.health<70:
 		player.health+=delta*10
 		
-	elif player.health>50:
+	elif player.health>70:
 		healing=false
 		
 	

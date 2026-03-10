@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
-const MAX_SPEED = 180.0
+const MAX_SPEED = 130.0
 const ACCELERATION = 800.0  # How fast you speed up
 const FRICTION = 400.0      # How fast you drift to a stop
 
