@@ -17,6 +17,7 @@ func _on_spawn_timer_timeout() -> void:
 func spawn_enemy():
 	# 1. Create the instance
 	var new_enemy = enemy_scene.instantiate()
+	new_enemy.player=player
 	
 	# 2. Pick a random direction (0 to 360 degrees)
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))

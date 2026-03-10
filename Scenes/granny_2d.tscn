@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=4 uid="uid://bpfe61lag3r86"]
+[gd_scene load_steps=28 format=4 uid="uid://bpfe61lag3r86"]
 
+[ext_resource type="Script" uid="uid://br5o7opvawfbt" path="res://Scripts/underwater.gd" id="1_a85hj"]
 [ext_resource type="PackedScene" uid="uid://3em15dvwyfw4" path="res://Scenes/Player2.tscn" id="1_wowx8"]
 [ext_resource type="Script" uid="uid://bxkpbhrgi6ylp" path="res://Scripts/player_granny.gd" id="2_mp1f1"]
+[ext_resource type="PackedScene" uid="uid://cteefuhlc4omj" path="res://Scenes/enemy_2_granny.tscn" id="2_s51ui"]
 [ext_resource type="Texture2D" uid="uid://17387qwyleli" path="res://Assets/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="3_54y02"]
 [ext_resource type="Texture2D" uid="uid://k0fbhf6ue23p" path="res://Assets/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1C.png" id="4_sqoxh"]
 [ext_resource type="Texture2D" uid="uid://b8nqmn6vpopfp" path="res://Assets/FREE/5. Industrial Tileset - Starter Pack 32p/2_Industrial_Tileset_1C_Background_Violet.png" id="5_c7wdb"]
@@ -427,6 +429,8 @@ size = Vector2(81, 109)
 size = Vector2(41, 32)
 
 [node name="granny 2d" type="Node2D"]
+script = ExtResource("1_a85hj")
+enemy_scene = ExtResource("2_s51ui")
 
 [node name="player" parent="." instance=ExtResource("1_wowx8")]
 position = Vector2(-158, 142)
