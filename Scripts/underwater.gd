@@ -5,7 +5,6 @@ extends Node2D
 @onready var player: CharacterBody2D = $player
 
 var spawn_radius = 400.0 # Distance from player to spawn
-
 func _ready() -> void:
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	spawn_timer.start(3.0) # Spawn every 3 seconds

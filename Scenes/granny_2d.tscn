@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bpfe61lag3r86"]
+[gd_scene load_steps=30 format=4 uid="uid://bpfe61lag3r86"]
 
 [ext_resource type="Script" uid="uid://br5o7opvawfbt" path="res://Scripts/underwater.gd" id="1_a85hj"]
 [ext_resource type="PackedScene" uid="uid://3em15dvwyfw4" path="res://Scenes/Player2.tscn" id="1_wowx8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://byqx30d7k18mi" path="res://Scripts/safezone.gd" id="7_sqoxh"]
 [ext_resource type="Script" uid="uid://bec3r2d8xd1uu" path="res://sprites/enemypathfind.gd" id="8_54y02"]
 [ext_resource type="Script" uid="uid://0nq48yqpm0wd" path="res://Scripts/enemynew.gd" id="10_c7wdb"]
+[ext_resource type="Script" uid="uid://dk5e8wjon26fx" path="res://Scripts/area_2d.gd" id="13_nyjw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c7wdb"]
 radius = 111.0045
@@ -439,6 +440,7 @@ position = Vector2(-158, 142)
 script = ExtResource("2_mp1f1")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(1.5, 1.5)
 
 [node name="Area2D" type="Area2D" parent="player"]
 collision_layer = 4
@@ -663,6 +665,7 @@ wait_time = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2427, -1291)
+script = ExtResource("13_nyjw2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_s51ui")
@@ -716,3 +719,4 @@ shape = SubResource("RectangleShape2D_s51ui")
 [connection signal="timeout" from="enemy/Enemy2/Timer2" to="enemy/Enemy2" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="enemy/Enemy5/Timer2" to="enemy/Enemy5" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="enemy/Enemy3/Timer2" to="enemy/Enemy3" method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
