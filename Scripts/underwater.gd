@@ -10,7 +10,10 @@ func _ready() -> void:
 	spawn_timer.start(3.0) # Spawn every 3 seconds
 
 func _on_spawn_timer_timeout() -> void:
+	
 	if enemy_scene:
+		
+		
 		spawn_enemy()
 
 func spawn_enemy():

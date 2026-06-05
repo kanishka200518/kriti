@@ -386,6 +386,7 @@ offset_left = 44.0
 offset_top = -25.0
 offset_right = 180.0
 offset_bottom = 17.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 10
 text = "HELLO I AM YOUR  FRIEND FOLLOW ME . "
 script = ExtResource("9_txut5")

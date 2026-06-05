@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://wripapopa7mv"]
+[gd_scene load_steps=16 format=4 uid="uid://wripapopa7mv"]
 
 [ext_resource type="Script" uid="uid://c4wmclv2nkm44" path="res://Scripts/invisible_parkour.gd" id="1_lgptv"]
 [ext_resource type="PackedScene" uid="uid://3em15dvwyfw4" path="res://Scenes/Player2.tscn" id="1_ofl75"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b8nqmn6vpopfp" path="res://Assets/FREE/5. Industrial Tileset - Starter Pack 32p/2_Industrial_Tileset_1C_Background_Violet.png" id="4_n4keu"]
 [ext_resource type="Texture2D" uid="uid://dfwaftfkhr1d1" path="res://Assets/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="5_dwb1h"]
 [ext_resource type="PackedScene" uid="uid://bprjx8byqv3w8" path="res://Scenes/Enemy.tscn" id="7_0y8qm"]
+[ext_resource type="Texture2D" uid="uid://dayxid2ljqtx2" path="res://Assets/74.png" id="8_n4keu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v37kv"]
 texture = ExtResource("2_lgptv")
@@ -384,7 +385,7 @@ func _on_body_entered(_body: Node2D) -> void:
 script = ExtResource("1_lgptv")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ofl75")]
-position = Vector2(-153, -679)
+position = Vector2(-335, 177)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(94, -68)
@@ -393,7 +394,7 @@ zoom = Vector2(2, 2)
 
 [node name="Camera2D2" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(483, -423)
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.6, 0.6)
 
 [node name="camera_Timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 4.0
@@ -432,6 +433,11 @@ script = SubResource("GDScript_0y8qm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_0y8qm")
+
+[node name="74" type="Sprite2D" parent="."]
+position = Vector2(-16, -719)
+scale = Vector2(0.32, 0.37)
+texture = ExtResource("8_n4keu")
 
 [connection signal="timeout" from="CharacterBody2D/camera_Timer" to="CharacterBody2D" method="_on_camera_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
